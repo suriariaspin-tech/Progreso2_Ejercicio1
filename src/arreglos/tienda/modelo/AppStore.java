@@ -71,7 +71,8 @@ public class AppStore {
                         mayor = j.getLicenciasVendidas();
                         nombre = j.getNombre();
                     }
-                }else{                   return nombre;
+                }else{
+                    return nombre;
                 }
             }
         }
