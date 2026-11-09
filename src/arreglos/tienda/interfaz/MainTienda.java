@@ -2,6 +2,7 @@ package arreglos.tienda.interfaz;
 
 import arreglos.tienda.modelo.AppStore;
 import arreglos.tienda.modelo.Juego;
+import arreglos.tienda.interfaz.Validacion;
 
 import javax.swing.*;
 import java.util.Scanner;
@@ -64,10 +65,8 @@ public class MainTienda {
 
     public static void ingresarJuego(){
         System.out.println("*******Ingreso de datos********");
-        System.out.print("Ingrese el nombre: ");
-        String nombre = leerNombre();
-        System.out.print("Ingrese la categoria: ");
-        String categoria = sc.nextLine();
+        String nombre = Validacion.leerString("Ingrese el nombre, no puede ser nulo ni blanco");
+        String categoria = Validacion.leerString("Ingrese la categoría, no puede ser nulo ni blanco");
         System.out.print("Ingrese el tamanio: ");
         int tamanio = Integer.parseInt(sc.nextLine());
         System.out.print("Ingrese el precio: ");
@@ -97,12 +96,4 @@ public class MainTienda {
 
     }
 
-    public static String leerNombre(){
-        String nombre;
-        do{
-            System.out.print("Ingrese el nombre (no puede estar vacío ni ser nulo): ");
-            nombre = sc.nextLine();
-        }while(nombre == null || nombre.trim().isEmpty());
-        return nombre;
-    }
 }
