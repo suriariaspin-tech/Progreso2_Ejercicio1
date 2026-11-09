@@ -10,6 +10,11 @@ public class AppStore {
         indice = -1;
     }
 
+    public void inicializarDatos(){
+        agregarJuego(new Juego("FIFA2026", "Deportes", 10, 70, 50));
+        agregarJuego(new Juego("Roblox", "Acción", 60, 75, 60));
+    }
+
     public Juego[] getJuegos() {
         return juegos;
     }
@@ -75,7 +80,7 @@ public class AppStore {
                     return nombre;
                 }
             }
-        }
+        }return nombre;
     }
 
 }
