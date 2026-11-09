@@ -100,7 +100,7 @@ public class MainTienda {
         if(tienda.vender(nombre, cantidad) == 0){
             System.out.println("No fue posible realizar la venta");
         }else{
-            System.out.println("Usted ha comprado" +cantidad+ "licencias del juego" +nombre+);
+            System.out.println("Usted ha comprado" +cantidad+ "licencias del juego" +nombre);
             System.out.println("Valor a pagar =" +totalVenta);
         }
     }
