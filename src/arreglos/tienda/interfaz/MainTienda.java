@@ -18,7 +18,7 @@ public class MainTienda {
             opcion = Integer.parseInt(sc.nextLine());
             switch (opcion) {
                 case 1:{
-
+                    ingresarJuego();
                 }break;
 
                 case 2:{
@@ -75,7 +75,21 @@ public class MainTienda {
         System.out.print("Ingrese el stock inicial: ");
         int licenciasDisponibles = Integer.parseInt(sc.nextLine());
         if(tienda.agregarJuego(new Juego(nombre,categoria,tamanio,precio,licenciasDisponibles))){
-            JOptionPane.showMessageDialog(null, "Juego agregado correctamente");
+            JOptionPane.showMessageDialog(null, "Juego ingresado con éxito");
+        }else{
+            JOptionPane.showMessageDialog(null, "No fue posible ingresar el juego");
+        }
+    }
+
+    public static void imprimirJuegos(){
+        Juego juego[] = tienda.getJuegos();
+        for(Juego j : juego){
+            if(j != null){
+                System.out.println(j);
+            }else{
+                System.out.println("No hay más juegos a mostrar");
+                return;
+            }
         }
     }
 }
