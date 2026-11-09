@@ -22,7 +22,7 @@ public class MainTienda {
                 }break;
 
                 case 2:{
-
+                    imprimirJuegos();
                 }break;
 
                 case 3:{
@@ -65,7 +65,7 @@ public class MainTienda {
     public static void ingresarJuego(){
         System.out.println("*******Ingreso de datos********");
         System.out.print("Ingrese el nombre: ");
-        String nombre = sc.nextLine();
+        String nombre = leerNombre();
         System.out.print("Ingrese la categoria: ");
         String categoria = sc.nextLine();
         System.out.print("Ingrese el tamanio: ");
@@ -91,5 +91,18 @@ public class MainTienda {
                 return;
             }
         }
+    }
+
+    public void vender(){
+
+    }
+
+    public static String leerNombre(){
+        String nombre;
+        do{
+            System.out.print("Ingrese el nombre (no puede estar vacío ni ser nulo): ");
+            nombre = sc.nextLine();
+        }while(nombre == null || nombre.trim().isEmpty());
+        return nombre;
     }
 }
