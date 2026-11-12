@@ -3,6 +3,8 @@ package arreglos.tienda.interfaz;
 import arreglos.tienda.modelo.AppStore;
 import arreglos.tienda.modelo.Juego;
 
+import javax.swing.JOptionPane;
+
 public class MainTienda {
     private static AppStore tienda = new AppStore();
 
@@ -70,7 +72,7 @@ public class MainTienda {
         double precio = Validacion.leerDoublePositivo("Ingrese el precio");
         int licenciasDisponibles = Validacion.leerIntNoNegativo("Ingrese el stock inicial");
         if(tienda.agregarJuego(new Juego(nombre,categoria,tamanio,precio,licenciasDisponibles))){
-            System.out.println("Juego ingresado con éxito");
+            JOptionPane.showMessageDialog(null, "Juego ingresado correctamente");
         }else{
             System.out.println("No fue posible ingresar el juego: la tienda está llena");
         }
