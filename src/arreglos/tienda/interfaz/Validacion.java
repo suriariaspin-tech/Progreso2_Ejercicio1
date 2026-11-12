@@ -21,7 +21,7 @@ public class Validacion {
             if(valor >= minimo && valor <= maximo){
                 return valor;
             }
-            System.out.println("Ingrese un n{umero entero entre " + minimo + " y " + maximo + ".");
+            System.out.println("Ingrese un numero entero entre " + minimo + " y " + maximo + ".");
         }
     }
 
