@@ -2,13 +2,10 @@ package arreglos.tienda.interfaz;
 
 import arreglos.tienda.modelo.AppStore;
 import arreglos.tienda.modelo.Juego;
-import arreglos.tienda.interfaz.Validacion;
 
 import javax.swing.*;
-import java.util.Scanner;
 
 public class MainTienda {
-    private static Scanner sc = new Scanner(System.in);
     private static AppStore tienda = new AppStore();
 
     static void main(){
@@ -16,7 +13,7 @@ public class MainTienda {
         tienda.inicializarDatos();
         do {
             menu();
-            opcion = Integer.parseInt(sc.nextLine());
+            opcion = Validacion.leerInt("Ingrese una opción", 1, 7);
             switch (opcion) {
                 case 1:{
                     ingresarJuego();
@@ -60,19 +57,15 @@ public class MainTienda {
         System.out.println("5. Vender");
         System.out.println("6. Juego más vendido");
         System.out.println("7. Salir");
-        System.out.print("Ingrese una opcion: ");
     }
 
     public static void ingresarJuego(){
         System.out.println("*******Ingreso de datos********");
         String nombre = Validacion.leerString("Ingrese el nombre, no puede ser nulo ni blanco");
         String categoria = Validacion.leerString("Ingrese la categoría, no puede ser nulo ni blanco");
-        System.out.print("Ingrese el tamanio: ");
-        int tamanio = Integer.parseInt(sc.nextLine());
-        System.out.print("Ingrese el precio: ");
-        double precio = Double.parseDouble(sc.nextLine());
-        System.out.print("Ingrese el stock inicial: ");
-        int licenciasDisponibles = Integer.parseInt(sc.nextLine());
+        int tamanio = Validacion.leerIntPositivo("Ingrese el tamanio");
+        double precio = Validacion.leerDoublePositivo("Ingrese el precio");
+        int licenciasDisponibles = Validacion.leerIntNoNegativo("Ingrese el stock inicial");
         if(tienda.agregarJuego(new Juego(nombre,categoria,tamanio,precio,licenciasDisponibles))){
             JOptionPane.showMessageDialog(null, "Juego ingresado con éxito");
         }else{
@@ -94,10 +87,9 @@ public class MainTienda {
 
     public void vender(){
         String nombre = Validacion.leerString("Ingrese el nombre, no puede ser nulo ni blanco");
-        System.out.print("Ingrese la cantidad: ");
-        int cantidad = Integer.parseInt(sc.nextLine());
+        int cantidad = Validacion.leerIntPositivo("Ingrese la cantidad");
         double totalVenta = tienda.vender(nombre,cantidad);
-        if(tienda.vender(nombre, cantidad) == 0){
+        if(totalVenta == 0){
             System.out.println("No fue posible realizar la venta");
         }else{
             System.out.println("Usted ha comprado" +cantidad+ "licencias del juego" +nombre);
