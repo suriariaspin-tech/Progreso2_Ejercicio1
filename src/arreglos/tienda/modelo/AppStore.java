@@ -35,7 +35,7 @@ public class AppStore {
 
     public Juego buscarJuego(String nombre){
         if(nombre != null && !nombre.trim().isEmpty()){
-            for(int i = 0; i < indice; i++){
+            for(int i = 0; i <= indice; i++){
                 if(juegos[i].getNombre().equalsIgnoreCase(nombre)){
                     return juegos[i];
                 }
